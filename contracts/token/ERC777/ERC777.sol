@@ -26,7 +26,7 @@ import "../../utils/introspection/IERC1820Registry.sol";
  * are no special restrictions in the amount of tokens that created, moved, or
  * destroyed. This makes integration with ERC20 applications seamless.
  */
-contract ERC777 is Context, IERC777, IERC20 {
+contract ERC777 is Context, IERC777, IERC20, ReentrancyGuard {
     using Address for address;
 
     IERC1820Registry internal constant _ERC1820_REGISTRY = IERC1820Registry(0x1820a4B7618BdE71Dce8cdc73aAB6C95905faD24);
