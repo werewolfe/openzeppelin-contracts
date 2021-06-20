@@ -481,7 +481,7 @@ contract ERC777 is Context, IERC777, IERC20, ReentrancyGuard {
         uint256 amount,
         bytes memory userData,
         bytes memory operatorData
-    ) private nonReentrant {
+    ) private {
         address implementer = _ERC1820_REGISTRY.getInterfaceImplementer(from, _TOKENS_SENDER_INTERFACE_HASH);
         if (implementer != address(0)) {
             IERC777Sender(implementer).tokensToSend(operator, from, to, amount, userData, operatorData);
